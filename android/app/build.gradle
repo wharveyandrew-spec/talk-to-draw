@@ -23,8 +23,31 @@ apply plugin: 'dev.flutter.flutter-gradle-plugin'
 
 android {
     namespace = "com.solvtech.talk_to_draw_new"
-    compileSdk = 34
-    ndkVersion = "25.1.8937393"
+
+    // Always use the latest installed SDK
+    def latestSdk = 34  // fallback in case autodetect fails
+    def sdkDir = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT") ?: "${System.properties['user.home']}/Library/Android/sdk"
+    def platformsDir = new File(sdkDir, "platforms")
+
+    if (platformsDir.exists()) {
+        def versions = platformsDir.listFiles()
+                .findAll { it.name.startsWith("android-") }
+                .collect { it.name.replace("android-", "").toInteger() }
+                .sort()
+        if (!versions.isEmpty()) {
+            latestSdk = versions.last()
+        }
+    }
+
+    compileSdk = latestSdk
+
+    defaultConfig {
+        applicationId = "com.solvtech.talk_to_draw_new"
+        minSdk = 24
+        targetSdk = 35
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -34,26 +57,8 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-
-    defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.solvtech.talk_to_draw_new"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = 24
-        targetSdk = 35
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
-    }
-
-    buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.debug
-        }
-    }
 }
+
 
 flutter {
     source = "../.."
