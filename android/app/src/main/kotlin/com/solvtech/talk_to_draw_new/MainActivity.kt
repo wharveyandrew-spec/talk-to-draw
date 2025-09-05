@@ -1,4 +1,4 @@
-package com.teamdjango.talk_to_draw
+package com.solvtech.talk_to_draw_new
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:speech_to_text/speech_to_text.dart' as stt;
-import 'package:flutter_tts/flutter_tts.dart';
-import 'package:talk_to_draw/splash_screen.dart';
+import 'package:talk_to_draw_new/splash_screen.dart';
 
 import 'home_screen.dart';
 

@@ -76,7 +76,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_tts:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_tts
       sha256: cbb3fd43b946e62398560235469e6113e4fe26c40eab1b7cb5e7c417503fb3a8
@@ -177,7 +177,7 @@ packages:
     source: hosted
     version: "1.11.1"
   permission_handler:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: permission_handler
       sha256: "59adad729136f01ea9e35a48f5d1395e25cba6cea552249ddbe9cf950f5d7849"
@@ -246,7 +246,7 @@ packages:
     source: hosted
     version: "1.10.0"
   speech_to_text:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: speech_to_text
       sha256: "97425fd8cc60424061a0584b6c418c0eedab5201cc5e96ef15a946d7fab7b9b7"

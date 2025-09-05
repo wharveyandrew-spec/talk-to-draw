@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <application
-        android:label="TalkToDraw"
+        android:label="talk_to_draw_new"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
